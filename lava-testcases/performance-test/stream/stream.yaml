@@ -17,5 +17,5 @@ params:
   EXECUTION_COUNT: "50"
 run:
   steps:
-    - cd stream
+    - cd lava-testcases/performance-test/stream
     - lava-test-case stream-test --shell sh stream.sh -s "${ARRAY_SIZE}" -c "${EXECUTION_COUNT}"
