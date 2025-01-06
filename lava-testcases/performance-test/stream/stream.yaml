@@ -1,0 +1,21 @@
+metadata:
+  name: stream
+  format: "Lava-Test Test Definition 1.0"
+  description: "Run stream on RISC-V device"
+  maintainer:
+    - wujie22@iscas.ac.cn
+  os:
+    - openEuler-riscv64
+  scope:
+      - stream performance
+  devices:
+    - qemu
+    - lpi4a
+    - sg2042
+params:
+  ARRAY_SIZE: "35000000"
+  EXECUTION_COUNT: "50"
+run:
+  steps:
+    - cd stream
+    - lava-test-case stream-test --shell sh stream.sh -s "${ARRAY_SIZE}" -c "${EXECUTION_COUNT}"
