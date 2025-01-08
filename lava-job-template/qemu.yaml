@@ -29,8 +29,8 @@ context:
 metadata:
   # please change these fields when modifying this job for your own tests.
   format: Lava-Test Test Definition 1.0
-  name: qemu-riscv64-kernel-test
-  description: "test stream for riscv64 qemu"
+  name: qemu-riscv64-test
+  description: "test for riscv64 qemu"
   version: "1.0"
 # ACTION_BLOCK
 actions:
