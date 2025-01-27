@@ -1,7 +1,7 @@
 metadata:
   name: stream
   format: "Lava-Test Test Definition 1.0"
-  description: "Run stream on RISC-V device"
+  description: "Run lmbench on RISC-V device"
   maintainer:
     - wujie22@iscas.ac.cn
   os:
@@ -17,7 +17,7 @@ params:
   EXECUTION_COUNT: "50"
 run:
   steps:
-    - cd lava-testcases/performance-test/stream
-    - bash stream.sh -s "${ARRAY_SIZE}" -c "${EXECUTION_COUNT}"
+    - cd lava-testcases/performance-test/lmbench
+    - bash lmbench.sh
     - chmod +x ../../utils/send-to-lava.sh
     - ../../utils/send-to-lava.sh ./output/result.txt
