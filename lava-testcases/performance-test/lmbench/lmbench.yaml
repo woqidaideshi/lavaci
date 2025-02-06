@@ -12,9 +12,6 @@ metadata:
     - qemu
     - lpi4a
     - sg2042
-params:
-  ARRAY_SIZE: "35000000"
-  EXECUTION_COUNT: "50"
 run:
   steps:
     - cd lava-testcases/performance-test/lmbench
