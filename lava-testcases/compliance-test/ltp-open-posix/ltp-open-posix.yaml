@@ -1,0 +1,21 @@
+metadata:
+    name: ltp-open-posix
+    format: "Lava-Test Test Definition 1.0"
+    description: "Run LTP open posix test suite on openEuler RISC-V"
+    maintainer:
+        - wujie22@iscas.ac.cn
+    os:
+        - openEuler-riscv64
+    scope:
+        - LTP functions
+    devices:
+      - qemu
+      - lpi4a
+      - sg2042
+run:
+    steps:
+        - cd lava-testcases/compliance-test/ltp-open-posix/
+        - chmod +x ltp-open-posix.sh
+        - ./ltp-open-posix.sh
+        - chmod +x ../../utils/send-to-lava.sh
+        - ../../utils/send-to-lava.sh ./output/result.txt  

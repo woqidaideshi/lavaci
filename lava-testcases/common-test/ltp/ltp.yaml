@@ -14,10 +14,9 @@ metadata:
       - sg2042
 params:
     TST_CMDFILES: fs_perms_simple,dio,ipc,math,nptl,pty,fs_bind,fcntl-locktests,hyperthreading,can,net.ipv6_lib,input,uevent
-
 run:
     steps:
-        - cd lava-testcases/common/ltp/
+        - cd lava-testcases/common-test/ltp/
         - chmod +x ltp.sh
         - ./ltp.sh -T "${TST_CMDFILES}"
         - chmod +x ../../utils/send-to-lava.sh

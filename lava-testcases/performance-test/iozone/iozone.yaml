@@ -1,7 +1,7 @@
 metadata:
-  name: unixbench
+  name: iozone
   format: "Lava-Test Test Definition 1.0"
-  description: "Run unixbench on RISC-V device"
+  description: "Run iozone on RISC-V device"
   maintainer:
     - wujie22@iscas.ac.cn
   os:
@@ -14,7 +14,7 @@ metadata:
     - sg2042
 run:
   steps:
-    - cd lava-testcases/performance-test/unixbench
-    - bash unixbench.sh
+    - cd lava-testcases/performance-test/iozone
+    - bash iozone.sh
     - chmod +x ../../utils/send-to-lava.sh
     - ../../utils/send-to-lava.sh ./output/result.txt
