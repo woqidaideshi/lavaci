@@ -52,12 +52,12 @@ actions:
       minutes: 20
     method: qemu
     media: tmpfs
-    prompts: ["root@openeuler-riscv64"]
+    prompts: ["root@openEuler"]
     auto_login:
-      login_prompt: "openeuler-riscv64 login:"
+      login_prompt: "openEuler login:"
       username: root
       password_prompt: "Password:"
-      password: openEuler12#$
+      password: openeuler
 # TEST_BLOCK
 - test:
     timeout:
