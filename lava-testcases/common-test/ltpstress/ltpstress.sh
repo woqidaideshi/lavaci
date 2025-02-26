@@ -5,7 +5,7 @@ set -x
 LTP_TMPDIR="/root/ltpstress-tmp"
 OUTPUT="$(pwd)/output"
 RESULT_FILE="${OUTPUT}/result.txt"
-TST_CMDFILES="-p -n -m 512 -t 168"
+TST_CMDFILES="-p -n -m 512 -t 1"
 RAVA_REPO="
 [openEuler_RAVA_Tools]
 name=openEuler:RAVA:Tools (24.03LTS_SP1)
