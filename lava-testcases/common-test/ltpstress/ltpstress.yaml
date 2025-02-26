@@ -13,11 +13,11 @@ metadata:
       - lpi4a
       - sg2042
 params:
-    TST_CMDFILES: -p -n -m 512 -t 1
+    TST_CMDFILES: 168
 run:
     steps:
         - cd lava-testcases/common-test/ltpstress/
         - chmod +x ltpstress.sh
-        - ./ltpstress.sh "${TST_CMDFILES}"
+        - ./ltpstress.sh -T "${TST_CMDFILES}"
         - chmod +x ../../utils/send-to-lava.sh
         - ../../utils/send-to-lava.sh ./output/result.txt  

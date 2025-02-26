@@ -5,7 +5,7 @@ set -x
 LTP_TMPDIR="/root/ltpstress-tmp"
 OUTPUT="$(pwd)/output"
 RESULT_FILE="${OUTPUT}/result.txt"
-TST_CMDFILES="-p -n -m 512 -t 1"
+TST_CMDFILES=168
 RAVA_REPO="
 [openEuler_RAVA_Tools]
 name=openEuler:RAVA:Tools (24.03LTS_SP1)
@@ -38,10 +38,10 @@ install_ltp() {
 }
 
 run_ltpstress() {
-    # cd /opt/ltp
+    cd /opt/ltp
     mkdir -p "${OUTPUT}"
-    echo start: /opt/ltp/testscripts/ltpstress.sh ${TST_CMDFILES} -l
-    /opt/ltp/testscripts/ltpstress.sh "${TST_CMDFILES}" -l "${OUTPUT}/ltpstress.log"
+    echo start: /opt/ltp/testscripts/ltpstress.sh -p -n -m 512 -t "${TST_CMDFILES}" -l "${OUTPUT}/ltpstress.log"
+    /opt/ltp/testscripts/ltpstress.sh -p -n -m 512 -t "${TST_CMDFILES}" -l "${OUTPUT}/ltpstress.log"
     parse_ltpstress_output "${OUTPUT}/ltpstress.log"
 }
 
