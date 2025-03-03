@@ -7,6 +7,7 @@ source ../../lib/sh-test-lib.sh
 TEST_TMPDIR="/root/unixbench"
 OUTPUT="$(pwd)/output"
 RESULT_FILE="${OUTPUT}/result.txt"
+RUN_TIMES=5
 
 log_parser() {
     prefix="$1"
@@ -35,11 +36,13 @@ make
 
 # Run a single copy.
 mkdir -p "${OUTPUT}"
-./Run -c 1 | tee "${OUTPUT}/unixbench-single.txt"
-log_parser "single" "${OUTPUT}/unixbench-single.txt"
+for i in $(seq 1 "${RUN_TIMES}"); do
+    ./Run -c 1 | tee "${OUTPUT}/unixbench-single-$i.txt"
+    log_parser "$i-single" "${OUTPUT}/unixbench-single-$i.txt"
 
-# Run the number of CPUs copies.
-if [ "$(nproc)" -gt 1 ]; then
-    ./Run -c "$(nproc)" | tee "${OUTPUT}/unixbench-multiple.txt"
-    log_parser "multiple" "${OUTPUT}/unixbench-multiple.txt"
-fi
+    # Run the number of CPUs copies.
+    if [ "$(nproc)" -gt 1 ]; then
+        ./Run -c "$(nproc)" | tee "${OUTPUT}/unixbench-multiple-$i.txt"
+        log_parser "$i-multiple" "${OUTPUT}/unixbench-multiple-$i.txt"
+    fi
+done
