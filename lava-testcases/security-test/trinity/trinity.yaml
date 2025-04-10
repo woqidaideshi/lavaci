@@ -1,0 +1,23 @@
+metadata:
+    name: trinity
+    format: "Lava-Test Test Definition 1.0"
+    description: "Run trinity tests on openEuler RISC-V"
+    maintainer:
+        - yafen@iscas.ac.cn
+    os:
+        - openEuler-riscv64
+    scope:
+        - trinity functions
+    devices:
+      - qemu
+      - lpi4a
+      - sg2042
+params:
+    TEST_NUMBER: 28200
+run:
+    steps:
+        - cd lava-testcases/security-test/trinity
+        - chmod +x trinity.sh
+        - ./trinity.sh -T "${TEST_NUMBER}"
+        - chmod +x ../../utils/send-to-lava.sh
+        - ../../utils/send-to-lava.sh ./output/result.txt
