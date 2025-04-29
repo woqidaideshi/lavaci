@@ -3,7 +3,7 @@ device_type: qemu
 job_name: ${qemu_job_name}
 timeouts:
   job:
-    minutes: 10150
+    minutes: 10250
   action:
     minutes: 10140
   connection:
@@ -37,7 +37,7 @@ actions:
 # DEPLOY_BLOCK
 - deploy:
     timeout:
-      minutes: 20
+      minutes: 120
     to: tmpfs
     images:
       kernel:
