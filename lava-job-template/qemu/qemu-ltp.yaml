@@ -38,6 +38,7 @@ actions:
 - deploy:
     timeout:
       minutes: 120
+    failure_retry: 5
     to: tmpfs
     images:
       kernel:
