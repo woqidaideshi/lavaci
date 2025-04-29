@@ -5,7 +5,7 @@ timeouts:
   job:
     minutes: 10250
   action:
-    minutes: 10140
+    minutes: 10240
   connection:
     minutes: 10
 priority: medium
