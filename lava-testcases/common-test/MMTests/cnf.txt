@@ -17,15 +17,10 @@ config-io-fio-scaling
 config-io-fio-ssd
 config-io-sparsetruncate-small
 config-io-trunc
-config-memdb-redis-benchmark
+config-memdb-redis-benchmark-small
 config-multi-tbench__netperf-tcp-rr
-config-network-iperf-s14-r10000-tcp-unbound
-config-network-netperf-cross-socket
-config-network-netperf-rr-unbound
 config-network-netperf-unix-unbound
 config-network-netpipe
-config-network-obsolete-netperf-rr-cstate
-config-network-obsolete-netperf-unbound
 config-pagereclaim-stutter
 config-scheduler-adrestia-single-unbound
 config-scheduler-lat_proc
@@ -39,7 +34,6 @@ config-workload-freqmine
 config-workload-poundsyscall
 config-workload-spinplace-long
 config-workload-spinplace-short
-config-multi-tbench__netperf-tcp-rr
 config-workload-stream-omp-llcs
 config-workload-stream-omp-nodes
 config-workload-stream-single
@@ -48,8 +42,6 @@ config-workload-stressng-context
 config-workload-stressng-get
 config-workload-stressng-mmap
 config-workload-thotdata
-config-workload-thpscale
-config-workload-thpscale-madvhugepage
 config-workload-unixbench
 config-workload-unixbenchd-syscall-context1
 config-workload-unixbenchd-syscall-getpid
@@ -75,20 +67,16 @@ config-io-paralleldd-read-small
 config-io-pgioperf
 config-io-xfsio
 config-ipc-scale-short
-config-network-netperf-cross-node
-config-network-netperf-cstate
-config-network-netperf-rr-cstate
-config-network-netperf-stream-unbound
-config-network-netperf-unbound
-config-network-obsolete-netperf-cross-node
-config-network-obsolete-netperf-cross-socket
-config-network-obsolete-netperf-cstate
+config-network-netperf-rr-ipv4-unbound
+config-network-netperf-rr-ipv6-unbound
+config-network-netperf-stream-ipv4-unbound
+config-network-netperf-stream-ipv6-unbound
 config-workload-coremark
 config-workload-futexbench
 config-workload-pft-process
 config-workload-pft-threads
 config-workload-sembench-futex
-config-workload-shellscripts
+#config-workload-shellscripts
 config-workload-stockfish
 config-workload-usemem-stress-numa-compact
 #long long time
@@ -97,6 +85,6 @@ config-scheduler-adrestia-periodic-unbound
 config-workload-johnripper
 config-workload-usemem-swap-ramdisk
 config-workload-wp-tlbflush
-config-workload-will-it-scale-pf-threads
+#config-workload-will-it-scale-pf-threads
 config-workload-will-it-scale-sys-threads
 config-monitor
