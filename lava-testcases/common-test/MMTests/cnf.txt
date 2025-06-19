@@ -54,7 +54,7 @@ config-workload-will-it-scale-io-threads
 config-workload-will-it-scale-pf-processes
 config-workload-will-it-scale-sys-processes
 #longtime
-config-db-pgbench-timed-ro-scale1
+#config-db-pgbench-timed-ro-scale1
 #config-functional-ltp-cve
 #config-functional-ltp-lite
 #config-functional-ltp-mm
