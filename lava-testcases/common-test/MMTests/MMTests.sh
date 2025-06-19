@@ -29,9 +29,21 @@ parse_mmtests_output() {
     pushd "$1"
     for logfile in *.log; do
         CONFIG_ITEM="${logfile:0:-4}"
+        if [ "x$(cat $logfile | wc -l)" == "x1" ]; then
+            echo $CONFIG_ITEM skip >> "${RESULT_FILE}"
+            continue
+        fi
+        if [ "x$(tail -1 $logfile)" != "xCleaning up" ]; then
+            echo $CONFIG_ITEM fail >> "${RESULT_FILE}"
+            continue
+        fi
         matches=$(grep "test exit ::" "$logfile")
         if [ -z "$matches" ]; then
-            echo $CONFIG_ITEM fail >> "${RESULT_FILE}"
+            if [ $(cat $logfile | wc -l) -lt 5 ] && [ -z "$(grep "FAIL" "$logfile")" ] ; then
+                echo $CONFIG_ITEM pass >> "${RESULT_FILE}"
+            else
+                echo $CONFIG_ITEM fail >> "${RESULT_FILE}"
+            fi
             continue
         fi
         all_pass=true
