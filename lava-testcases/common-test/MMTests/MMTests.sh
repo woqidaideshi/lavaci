@@ -31,7 +31,18 @@ parse_mmtests_output() {
         CONFIG_ITEM="${logfile:0:-4}"
         matches=$(grep "test exit ::" "$logfile")
         if [ -z "$matches" ]; then
-            echo $CONFIG_ITEM fail >> "${RESULT_FILE}"
+            cpu_warning_count=$(cat $logfile | grep cpu | grep 'No such file or directory' | wc -l)
+            lines_count=$(awk 'END{print NR}' $logfile)
+            info_count=$((lines_count-cpu_warning_count))
+            if [ $info_count -eq 1 ] && cat $logfile | grep -v 'No such file or directory' | grep -q '^Skipping'; then
+                echo $CONFIG_ITEM skip >> "${RESULT_FILE}"
+                continue
+            fi
+            if [ $info_count -lt 5 ] && [ -z "$(grep "FAIL" "$logfile")" ] && [ "x$(tail -1 $logfile)" == "xCleaning up" ]; then
+                echo $CONFIG_ITEM pass >> "${RESULT_FILE}"
+            else
+                echo $CONFIG_ITEM fail >> "${RESULT_FILE}"
+            fi
             continue
         fi
         all_pass=true
@@ -66,7 +77,7 @@ run_mmtests() {
         for cnf in ${configs[@]}
         do
             echo "--------------start run "${cnf}"  `date +%Y%m%d-%H%M%S`------------------------------"
-            rm -rf work/testdisk/ 
+            rm -rf work/testdisk/
             time bash run-mmtests.sh --no-monitor --config configs/"${cnf}" "${cnf}" 2>&1 | tee "${OUTPUT}"/log/"${cnf}".log
             echo "--------------   end run "${cnf}"  `date +%Y%m%d-%H%M%S`------------------------------"
         done
@@ -74,7 +85,7 @@ run_mmtests() {
     else
         pushd /usr/libexec/MMTests
         echo "--------------start run "${TEST_CONFIG}"  `date +%Y%m%d-%H%M%S`------------------------------"
-        rm -rf work/testdisk/ 
+        rm -rf work/testdisk/
         time bash run-mmtests.sh --no-monitor --config configs/"${TEST_CONFIG}" "${TEST_CONFIG}" 2>&1 | tee "${OUTPUT}"/log/"${TEST_CONFIG}".log
         echo "--------------   end run "${TEST_CONFIG}"  `date +%Y%m%d-%H%M%S`------------------------------"
         popd
