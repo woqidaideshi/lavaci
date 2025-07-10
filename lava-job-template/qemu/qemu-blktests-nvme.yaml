@@ -46,10 +46,10 @@ actions:
       rootfs:
         image_arg: -drive file={rootfs},format=raw,id=hd0,if=none
         url: ${qemu_rootfs_image_url}
+        compression: zstd
       disk:
         image_arg: -drive file={disk},format=raw,if=none,id=drv0 -device nvme,drive=drv0,serial=deadbeef
         url: ${qemu_disk_image_url}
-        compression: zstd
 # BOOT_BLOCK
 - boot:
     timeout:
