@@ -44,7 +44,7 @@ actions:
         image_arg: -kernel {kernel}
         url: ${qemu_kernel_image_url}
       rootfs:
-        image_arg: -drive file={rootfs},format=raw,id=hd0
+        image_arg: -drive file={rootfs},format=raw,id=hd0,if=none
         url: ${qemu_rootfs_image_url}
       disk:
         image_arg: -drive file={disk},format=raw,if=none,id=drv0 -device nvme,drive=drv0,serial=deadbeef
