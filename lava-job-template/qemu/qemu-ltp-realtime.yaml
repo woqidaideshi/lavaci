@@ -46,6 +46,7 @@ actions:
       rootfs:
         image_arg: -drive file={rootfs},format=raw,id=hd0,if=none
         url: ${qemu_rootfs_image_url}
+        compression: zstd
 # BOOT_BLOCK
 - boot:
     timeout:
