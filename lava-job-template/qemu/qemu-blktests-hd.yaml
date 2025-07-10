@@ -46,6 +46,7 @@ actions:
       rootfs:
         image_arg: -drive file={rootfs},format=raw,id=hd0,if=none
         url: ${qemu_rootfs_image_url}
+        compression: zstd
       disk:
         image_arg: -drive file={disk},if=none,id=drv1,format=raw -device virtio-blk-device,drive=drv1
         url: ${qemu_disk_image_url}
