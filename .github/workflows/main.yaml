@@ -1,0 +1,19 @@
+name: RAVA CI
+
+on:
+  push:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+  issues:
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  RAVA:
+    uses: OERV-RVCI/RVCK-pipeline/.github/workflows/rava-actions.yml@actions
+    secrets:
+      lava_token: ${{ secrets.LAVA_TOKEN }}
+    permissions:
+      issues: write
+      pull-requests: write
