@@ -1,6 +1,6 @@
 # Your first LAVA JOB definition for an riscv_64 QEMU
 device_type: qemu
-job_name: ${qemu_job_name}
+job_name: ${job_name}
 timeouts:
   job:
     minutes: 10150
@@ -42,14 +42,14 @@ actions:
     images:
       kernel:
         image_arg: -kernel {kernel}
-        url: ${qemu_kernel_image_url}
+        url: ${kernel_image_url}
       rootfs:
         image_arg: -drive file={rootfs},format=raw,id=hd0,if=none
-        url: ${qemu_rootfs_image_url}
+        url: ${rootfs_image_url}
         compression: zstd
       disk:
         image_arg: -device sdhci-pci -drive file={disk},format=raw,id=mmc -device sd-card,drive=mmc
-        url: ${qemu_disk_image_url}
+        url: ${disk_image_url}
 # BOOT_BLOCK
 - boot:
     timeout:
@@ -70,7 +70,7 @@ actions:
     - repository: ${testcase_repo}
       from: git
       name: ${testitem_name}
-      path: ${testcase_url}
+      path: ${testcase_path}
       parameters:
         TEST_ITEMS: ${test_items}
         DISK_FILTER: ${disk_filter}
