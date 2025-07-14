@@ -66,5 +66,5 @@ actions:
     definitions:
     - from: git
       name: ${testitem_name}
-      path: ${testcase_url}
+      path: ${testcase_path}
       repository: ${testcase_repo}
