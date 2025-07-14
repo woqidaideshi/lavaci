@@ -68,7 +68,7 @@ actions:
     - repository: ${testcase_repo}
       from: git
       name: ${testitem_name}
-      path: ${testcase_directory}
+      path: ${testcase_url}
       parameters:
         TST_CMDFILES: ${ltp_testsuite}
 
