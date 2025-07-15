@@ -11,7 +11,7 @@ on:
 
 jobs:
   RAVA:
-    uses: OERV-RVCI/RVCK-pipeline/.github/workflows/rava-actions.yml@actions
+    uses: OERV-RVCI/RVCK-RAVA/.github/workflows/rava-actions.yml@main
     secrets:
       lava_token: ${{ secrets.LAVA_TOKEN }}
     permissions:
