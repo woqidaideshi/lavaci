@@ -20,13 +20,13 @@
 在ISSUE评论里，输入指令以触发CI,CI会根据指令内容运行最新代码的测试
 ```
 # 示例:
-/check lava_template=设备模板路径 lava_testcase_url=测试用例路径
+/check lava_template=设备模板路径 testcase_path=测试用例路径
 
 # 使用lavaci仓库中lava-job-template/qemu/qemu-ltp.yaml设备模板和lava-testcases/common-test/ltp/ltp.yaml测试用例进行测试
-/check lava_template=lava-job-template/qemu/qemu-ltp.yaml lava_testcase_url=lava-testcases/common-test/ltp/ltp.yaml
+/check lava_template=lava-job-template/qemu/qemu-ltp.yaml testcase_path=lava-testcases/common-test/ltp/ltp.yaml
 
 # 使用lavaci仓库中lava-job-template/qemu/qemu-ltp.yaml设备模板和lava-testcases/common-test/ltp/ltp.yaml测试用例进行测试
-/check lava_template=lava-job-template/qemu/qemu-mmtests.yaml lava_testcase_url=lava-testcases/common-test/MMTests/MMTests.yaml
+/check lava_template=lava-job-template/qemu/qemu-mmtests.yaml testcase_path=lava-testcases/common-test/MMTests/MMTests.yaml
 ```
 ![ISSUE](images/image3.png)
 ### 取消
